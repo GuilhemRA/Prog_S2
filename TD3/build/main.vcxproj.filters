@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Guilhem\School\IMAC\Cours\Algorithmique\Prog_S2\TD3\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Guilhem\School\IMAC\Cours\Algorithmique\Prog_S2\TD3\src\td03.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Guilhem\School\IMAC\Cours\Algorithmique\Prog_S2\TD3\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DAACE222-5464-37B1-B4F9-407C39C394E3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
