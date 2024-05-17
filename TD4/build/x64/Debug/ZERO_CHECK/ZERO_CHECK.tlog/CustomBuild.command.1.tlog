@@ -1,0 +1,10 @@
+^D:\GUILHEM\SCHOOL\IMAC\COURS\ALGORITHMIQUE\PROG_S2\TD4\BUILD\CMAKEFILES\7F579A08E4FAA1F66102B56D839A9BAE\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Guilhem/School/IMAC/Cours/Algorithmique/Prog_S2/TD4 -BD:/Guilhem/School/IMAC/Cours/Algorithmique/Prog_S2/TD4/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Guilhem/School/IMAC/Cours/Algorithmique/Prog_S2/TD4/build/TD4_Project.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
