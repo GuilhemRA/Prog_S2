@@ -64,6 +64,8 @@ float npi_evaluate(std::vector<std::string> const& tokens) {
 }
 
 
+
+
 Token make_token(float value) {
     Token result;
     result.type = TokenType::OPERAND;
@@ -78,8 +80,65 @@ Token make_token(Operator op) {
 }
 
 std::vector<Token> tokenize(std::vector<std::string> const& words) {
-    std::vector<Token> vectToken();
+    std::vector<Token> vectToken;
     for(std::string n : words) {
-        vectToken.push_back(make_token(words));
+        if(is_floating(n)) {
+        vectToken.push_back(make_token(std::stof(n)));
+        } else {
+            if(n=="+") {
+                vectToken.push_back(make_token(Operator::ADD));
+            }
+            if(n=="-") {
+                vectToken.push_back(make_token(Operator::SUB));
+            }
+            if(n=="*") {
+                vectToken.push_back(make_token(Operator::MUL));
+            }
+            if(n=="/") {
+                vectToken.push_back(make_token(Operator::DIV));
+            }
+        }
     }
+
+    return vectToken;
+}
+
+float npi_evaluate(std::vector<Token> const& tokens) {
+    std::stack<Token> stack;
+    for(Token n : tokens) {
+        if(n.type==TokenType::OPERAND) {
+            stack.push(n);
+        } else {
+            // Je récupère l'élément en haut de la pile
+            float rightOperand { stack.top().value };
+            // Je l'enlève de la stack (la méthode top ne fait que lire l’élément en dessus de la pile)
+            stack.pop();
+            // Je récupère l'élément en bas de la pile
+            float leftOperand { stack.top().value };
+            stack.pop();
+
+            if(n.op==Operator::ADD) {
+                float result = leftOperand + rightOperand;
+                Token tokenResult = make_token(result);
+                stack.push(tokenResult);
+            }
+            if(n.op==Operator::SUB) {
+                float result = leftOperand - rightOperand;
+                Token tokenResult = make_token(result);
+                stack.push(tokenResult);
+            }
+            if(n.op==Operator::MUL) {
+                float result = leftOperand * rightOperand;
+                Token tokenResult = make_token(result);
+                stack.push(tokenResult);
+            }
+            if(n.op==Operator::DIV) {
+                float result = leftOperand / rightOperand;
+                Token tokenResult = make_token(result);
+                stack.push(tokenResult);
+            }
+        }
+    }
+
+    return stack.top().value;
 }

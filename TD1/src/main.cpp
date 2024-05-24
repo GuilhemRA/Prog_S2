@@ -12,22 +12,34 @@ int main()
     f2.display();
     std::cout << std::endl;
 
-    Fraction f3 { add(f1, f2) };
+    std::cout << "f1 + f2 = ";
+    std::cout << f1+f2;
 
-    std::cout << "add(f1, f2) = ";
-    f3.display();
+    std::cout << std::endl << "f1 - f2 = ";
+    std::cout << f1-f2;
 
-    std::cout << std::endl << "sub(f1, f2) = ";
-    (sub(f1, f2)).display();
+    std::cout << std::endl << "f1 * f2) = ";
+    std::cout << f1*f2;
 
-    std::cout << std::endl << "mul(f1, f2) = ";
-    (mul(f1, f2)).display();
+    std::cout << std::endl << "f1 / f2 = ";
+    std::cout << f1/f2;
 
-    std::cout << std::endl << "div(f1, f2) = ";
-    (div(f1, f2)).display();
+    if((f1==f2) == true) {
+        std::cout << std::endl << f1 << " et " << f2 << " sont egales" << std::endl;
+    } else {
+        std::cout << std::endl << f1 << " et " << f2 << " ne sont pas egales" << std::endl;
+    }
 
-    std::cout << std::endl << "add(1/6, 2/6) = ";
-    (add({1, 6}, {2, 6})).display();
+    if((f1<f2) == true) {
+        std::cout << std::endl << f1 << " est inferieure a " << f2 << std::endl;
+    } else {
+        std::cout << std::endl << f1 << " n'est pas inferieure a " << f2 << std::endl;
+    }
+
+    std::cout << to_float(f1);
+    
+    // std::cout << std::endl << "1/6 + 2/6 = ";
+    // ({1, 6}+{2, 6}).display();
 
     return 0;
 }
